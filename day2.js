@@ -43,11 +43,8 @@ const breakUpRows = string => string.split('%0A')
 const filterOutBlanks = array => array.filter(el => el !== '')
 
 const separateRowElements = (array) => {
-  let separatedArray = []
-  array.forEach((row) => {
-    separatedArray.push(filterOutBlanks(row.split(/%20|%20%20/)))
-  })
-  return separatedArray
+  return array
+    .map(row => row.split(/%20|%20%20/).filter(el => el !== ''))
 }
 
 const checksum = (array) => {
